@@ -1,0 +1,112 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+
+    mat-form-field {
+        display: flex;
+    }
+
+    mat-form-field ::ng-deep .mat-form-field-wrapper {
+        width: 100%;
+    }
+
+    mat-form-field ::ng-deep .mat-form-field-infix {
+        width: 200px;
+    }
+
+    .logo-holder {
+        position: relative;
+        padding: 10px 0;
+        display: flex;
+        margin: 0 auto;
+        height: 100px;
+        width: 100px;
+        justify-content: center;
+
+        label {
+            margin: 0;
+        }
+
+        .image-overlay {
+            opacity: 0;
+            position: absolute;
+            bottom: 9px;
+            right: 0px;        
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.67);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+
+            .edit-icon {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                mat-icon {
+                    color: #FFFFFF;
+                    font-size: 35px;
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+
+        .company_logo {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+
+        &:hover .image-overlay {
+            position: absolute;
+            opacity: 1;
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .text-content-style {
+        text-align: left;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: 6px 16px;
+        background-color: #FFFFFF;
+        position: sticky;
+        z-index: 5;
+        margin-bottom: 0px;
+
+        .button-row {
+            width: 100%;
+            display: flex;
+            color: blue;
+
+            .btn-right {
+                margin-left: auto;
+            }
+
+            .cancel-button {
+                border: 0px;
+                // margin-right: 10px;
+                background: white;
+                cursor: pointer;
+            }
+        }
+    }
+}
+

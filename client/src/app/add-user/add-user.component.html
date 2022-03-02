@@ -1,0 +1,60 @@
+<div class="container"> 
+  <mat-toolbar class="header">
+    <mat-toolbar-row>
+      <span>{{isNew ? 'Add User' : 'Edit User'}}</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <section>
+    <form #addUser="ngForm" (ngSubmit)="save()">
+      <div class="logo-holder ">
+        <label for="upload_image">
+          <img class="company_logo" [src]="user.profile_image" alt="" onerror="this.src='/assets/image/default.png'"
+            (click)="imgInput && imgInput?.click()">
+          <input type="file" onclick="this.value=null" #imgInput id="upload_image" [hidden]="true"
+            accept="image/*" (change)="fileChangeEvent($event)" />
+          <div class="image-overlay">
+            <div class="edit-icon">
+              <mat-icon>edit</mat-icon>
+            </div>
+          </div>
+        </label>
+      </div>
+      <mat-form-field class="form-group user-container name-field" appearance="fill">
+        <mat-label for="phone">First Name</mat-label>
+        <input matInput type="text" class="holder form-inputs" placeholder="Enter your first name" id="first_name"
+          [(ngModel)]="user.first_name" name="first_name" maxlength="10" minlength="1" #first_name required>
+      </mat-form-field>
+      <mat-form-field class="form-group user-container name-field" appearance="fill">
+        <mat-label for="phone">Last Name</mat-label>
+        <input matInput type="text" class="holder form-inputs" placeholder="Enter your last name" id="last_name"
+          [(ngModel)]="user.last_name" name="last_name" maxlength="10" minlength="1" #last_name required>
+      </mat-form-field>
+      <mat-form-field class="form-group user-container name-field" appearance="fill">
+        <mat-label for="phone">Email</mat-label>
+        <input matInput type="email" class="holder form-inputs" placeholder="Enter your email" id="email"
+          [(ngModel)]="user.email" name="email" #email required>
+      </mat-form-field>
+      <mat-form-field class="form-group user-container name-field" appearance="fill">
+        <mat-label for="phone">Phone</mat-label>
+        <input matInput type="text" class="holder form-inputs" placeholder="Enter your phone number" id="phone"
+          [(ngModel)]="user.phone" name="phone" maxlength="10" minlength="1" #phone required>
+      </mat-form-field>
+
+      <mat-card-actions class="footer">
+        <div class="button-row">
+          <div class="btn-right">
+            <button mat-button type="button" class="cancel-button" tabindex="-1" (click)="cancel()">Cancel</button>
+          </div>
+          <div>
+            <button mat-button type="submit" [disabled]="!addUser?.valid || !addUser?.dirty">
+              <div *ngIf="isNew; else other_content">
+                Add
+              </div>
+              <ng-template #other_content>Done</ng-template>
+            </button>
+          </div>
+        </div>
+      </mat-card-actions>
+    </form>
+  </section>
+</div>
